@@ -1,9 +1,8 @@
 name: Release
 on:
-    workflow_run:
-        workflows: [Test]
-        types:
-            - completed
+  push:
+    branches:
+      - "main"
 
 jobs:
     release:
@@ -20,10 +19,7 @@ jobs:
                   node-version: 'lts/*'
             - name: Install dependencies
               run: npm run ci
-            - name: Build
-              run: npm run build:dist
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: npx semantic-release
