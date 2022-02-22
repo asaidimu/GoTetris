@@ -1,9 +1,5 @@
 {
-    "name": "template",
-    "version": "1.0.0",
-    "description": "Standard repository template.",
-    "repository": "git@github.com:asaidimu/template.git",
-    "author": "saidimu",
+    "private": true,
     "license": "MIT",
     "scripts": {
         "ci": "yarn install && yarn upgrade"
@@ -26,12 +22,6 @@
                 "@semantic-release/changelog",
                 {
                     "changelogFile": "CHANGELOG.md"
-                }
-            ],
-            [
-                "@semantic-release/npm",
-                {
-                    "pkgRoot": "dist"
                 }
             ],
             [
